@@ -22,6 +22,6 @@ I calculate and draw the points for the full Moon. I use the
 horizontal symmetry to simplify those calculations, but I think I
 could be even more efficient if I didn't even draw those points. 
 Instead, I could just draw the top half of the Moon and then 
-use `transform` to flip it for the bottom of the Moon. For now, it
+use `transform` to flip it for the bottom half. For now, it
 runs perfectly fine, even if I calculate 500 times more points than
 I do currently.
