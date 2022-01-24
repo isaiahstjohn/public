@@ -116,7 +116,10 @@ function draw(){
   }
 
   curve.push( [v, 0] );
-  for( let w = 1; w < rad; w++ ){
+  let epsilon = 0.04;
+  const HALF_PI = PI/2;
+  for (let gamma = epsilon; gamma < HALF_PI; gamma += epsilon){
+    let w = rad * sin(gamma);
     rAtW = pow( pow(rad, 2) - pow(w, 2), 0.5 );
     // We push the points in reverse order for the arc and the curve.
     // That's because when we draw the curve, we'll be going up, and 
