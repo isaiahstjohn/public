@@ -6,7 +6,7 @@ no dependencies.
 ## How it works
 I was able to get a precise figure for the number of seconds in a
 full cycle from Wikipedia. I use that and the precise date and time
-of the first New Moon of 2022 to calculate the angle of the sun
+of the first new Moon of 2022 to calculate the angle of the sun
 relative to the Earth and Moon at any date in the past or future.
 
 From there, I used some simple trigonometry to calculate the line 
