@@ -93,6 +93,7 @@ function draw(){
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, W, H);
   let phase = ( theta >= PI ) ? WAXING : WANING;
+
   // If we project a cartesian plane onto the moon, `v` is on the x-axis
   // and `w` is on the y-axis.
   // Now we need to find the points on the curve above and below the 
@@ -104,6 +105,7 @@ function draw(){
   // ctx.arc() won't work here. It works well for slices and
   // arcs bounded by chords, but it does not do crescent moon shapes. So
   // we have to draw our own circle. Again, we can use symmetry.
+
   let curve = [];    // The curve that splits the moon down the middle
   let arc;           // A half circumference of the moon
   let rAtW, v;
@@ -116,6 +118,8 @@ function draw(){
   }
 
   curve.push( [v, 0] );
+  // epsilon determines the number of points we will use to produce
+  // the curves
   let epsilon = 0.04;
   const HALF_PI = PI/2;
   for (let gamma = epsilon; gamma < HALF_PI; gamma += epsilon){
@@ -165,7 +169,8 @@ function draw(){
   ctx.lineTo( 0, -rad );
   ctx.stroke();
   ctx.fill();
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // reset translations and rotations
 
   tick += 1;
 }

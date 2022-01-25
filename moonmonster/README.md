@@ -1,6 +1,6 @@
 # Moon Monster
 [Moon Monster](https://themoon.monster) is a simple HTML5 Canvas app 
-that shows how the phases of the Moon will change over time. It has
+I created that shows how the phases of the Moon will change over time. It has
 no dependencies.
 
 ## How it works
