@@ -16,12 +16,19 @@ since the Canvas API's `arc` method seems to only work with shapes
 that are pie shaped or circles when using `fill`.
 
 ## Future work
-There is one performance improvement I have in mind that might be
-worth looking at if performance ever became a problem. Currently,
-I calculate and draw the points for the full Moon. I use the 
-horizontal symmetry to simplify those calculations, but I think I
-could be even more efficient if I didn't even draw those points. 
-Instead, I could just draw the top half of the Moon and then 
-use `transform` to flip it for the bottom half. For now, it
-runs perfectly fine, even if I calculate 500 times more points than
-I do currently.
+Instead of calculating the angle of rotation as a function of time,
+it would be better to calculate time as a function of the angle of
+rotation and number of full rotations. Then I could easily cache
+calculations for each angle and avoid any intensive number crunching
+after the first full revolution.
+
+I also found that the date is currently not visible on some small
+devices. So I would like to improve the responsiveness. Unfortunately,
+canvas resizing isn't straightforward. It should be possible to simply
+resize based on `canvas.clientHeight` and `canvas.clientWidth` in
+a window resize event handler, but this doesn't work. It seems that
+the browser is not providing accurate dimensions. I believe the best
+workaround is likely to be that taken by https://github.com/swevans/canvas-resizer , 
+which is to remove the canvas from the document, detect the
+parent element's size, resize the canvas to match, and finally
+add it back to the document.
